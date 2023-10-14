@@ -1,17 +1,20 @@
-package Testing;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Set;
 
 public class SeleniumSetup {
-      public WebDriver driver;
-      public  WebDriverWait wait;
+    public WebDriver driver;
+    public  WebDriverWait wait;
     public SeleniumSetup(String web_sit_eurl)
     {
+        //WebDriverManager.edgedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");//set driver
+        //WebDriver driver = new EdgeDriver();
         driver = new ChromeDriver();
         driver.get(web_sit_eurl);//get url
         driver.manage().window().maximize();//maximize window

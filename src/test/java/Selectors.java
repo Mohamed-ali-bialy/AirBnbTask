@@ -1,4 +1,3 @@
-package Testing;
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import java.time.Duration;
@@ -21,21 +20,21 @@ public class Selectors {
     public WebElement findByCssSelector(String cssSelector) {
         return driverofselector.findElement(By.cssSelector(cssSelector));
     }//find webelement (cssSelector)
-    
+
     public WebElement aria_label(String aria_value) {
         String cssSelector = String.format("[aria-label=\"%s\"]", aria_value);
         return driverofselector.findElement(By.cssSelector(cssSelector));
     }//find webelement (aria_label)
-    
+
     public WebElement data_testid(String data_testid) {
         String cssSelector = String.format("[data-testid=\"%s\"]", data_testid);
         return driverofselector.findElement(By.cssSelector(cssSelector));
     }//find webelement (data_testid)
-    
+
     public WebElement findById(String id) {
         return driverofselector.findElement(By.id(id));
     }//find webelement (id)
-    
+
     public WebElement findByXPath(String xpath) {
         return driverofselector.findElement(By.xpath(xpath));
     }//find webelement (xpath)
@@ -43,24 +42,24 @@ public class Selectors {
     public WebElement findByName(String name) {
         return driverofselector.findElement(By.name(name));
     }//find webelement (findByName)
-    
+
     public WebElement findByClassName(String className) {
         return driverofselector.findElement(By.className(className));
     }//find webelement (className)
-    
+
     public WebElement findByLinkText(String linkText) {
         return driverofselector.findElement(By.linkText(linkText));
     }//find webelement (linkText)
-    
+
     public WebElement findByPartialLinkText(String partialLinkText) {
         return driverofselector.findElement(By.partialLinkText(partialLinkText));
     }//find webelement (partialLinkText)
 
 
-        public WebElement waitForElementToBePresent(By locator) {
+    public WebElement waitForElementToBePresent(By locator) {
         WebDriverWait wait1 = new WebDriverWait(driverofselector, Duration.ofSeconds(25));
-            return wait1.until(ExpectedConditions.presenceOfElementLocated(locator));
-        }//find webelement By locator and ExpectedConditions(presenceOfElementLocated)
+        return wait1.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }//find webelement By locator and ExpectedConditions(presenceOfElementLocated)
 
     public WebElement waitForElementToBeVisible(By locator) {
         WebDriverWait wait2 = new WebDriverWait(driverofselector, Duration.ofSeconds(25));
@@ -88,13 +87,13 @@ public class Selectors {
     }//find webelement (xpath) and ExpectedConditions(visibilityOfElementLocated)
 
     public WebElement waitForElementToBeVisiblebyxpathWithException(String xpath) throws Exception {
-       try {
-           WebDriverWait wait7 = new WebDriverWait(driverofselector, Duration.ofSeconds(25));
-           return wait7.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-       }catch (Exception e)
-       {
-           throw new Exception("",e);
-       }
+        try {
+            WebDriverWait wait7 = new WebDriverWait(driverofselector, Duration.ofSeconds(25));
+            return wait7.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        }catch (Exception e)
+        {
+            throw new Exception("",e);
+        }
     }//find webelement (xpath) and ExpectedConditions(visibilityOfElementLocated) and Exception handler
 
 
@@ -105,8 +104,8 @@ public class Selectors {
             return true;
         }
         else {return false;}
-    }//check the subsrting inside element 
-    
+    }//check the subsrting inside element
+
     public List<String> findListOfStrings(String Class_name)
     {
         List<String>temp =new ArrayList<>();
@@ -123,16 +122,16 @@ public class Selectors {
     public List<String> findListOfTexts(String Parentclasses,String InternalCssRoute)
     {
         List <String>temp=new ArrayList<>();
-            List<WebElement> innerDivs =driverofselector.findElements(By.className(Parentclasses));
-            for(WebElement element:innerDivs)
-            {
-                try {
-                    String str = (element.findElement(By.cssSelector(InternalCssRoute))).getText();
-                    temp.add(str);
-                }catch (Exception e){
-                    temp.add("NotFoundElement");//add "NotFoundElement" when webelement is not found
-                }
+        List<WebElement> innerDivs =driverofselector.findElements(By.className(Parentclasses));
+        for(WebElement element:innerDivs)
+        {
+            try {
+                String str = (element.findElement(By.cssSelector(InternalCssRoute))).getText();
+                temp.add(str);
+            }catch (Exception e){
+                temp.add("NotFoundElement");//add "NotFoundElement" when webelement is not found
             }
+        }
         return temp;
     }
 }//find list of Strings using class name and cssSelector for internal path

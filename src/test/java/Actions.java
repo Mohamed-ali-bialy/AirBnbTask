@@ -1,4 +1,3 @@
-package Testing;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -10,10 +9,10 @@ public class Actions {
     }
     public static void clickon(WebElement element,int count)//click with count
     {
-       for (int i=0;i<count;i++)
-       {
-           element.click();
-       }
+        for (int i=0;i<count;i++)
+        {
+            element.click();
+        }
     }
     public static void SendInput(WebElement element, String text)//send inputs
     {
@@ -25,7 +24,4 @@ public class Actions {
         element.sendKeys(Keys.RETURN);
     }
 }
-
-
-
 
